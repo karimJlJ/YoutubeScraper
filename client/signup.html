@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="">
+    <link rel="stylesheet" type="text/css" href="./css/signup.css">
+</head>
+
+<body>
+    <h1> Inscription </h1>
+   
+    <form class="form" action="/register" id="signup" method="POST">
+        <p class="title">Register</p>
+        <p class="message">Signup now and get full access to our app.</p>
+
+        <label>
+            <input class="input" type="text" placeholder="" required name="username">
+            <span>username</span>
+        </label>
+   
+        <label>
+            <input class="input" type="email" placeholder="" required name="email">
+            <span>Email</span>
+        </label> 
+        
+        <label>
+            <input class="input" type="password" placeholder="" required name="password">
+            <span>Password</span>
+        </label>
+        
+        <button class="submit">Submit</button>
+        <p class="signin">Already have an acount ? <a href="./login.html">Signin</a> </p>
+    </form>
+
+    <script src="../server/signup.js"></script>
+
+</body>
+
+</html>
+

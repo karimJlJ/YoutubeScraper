@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    
+    <title>User</title>
+</head>
+<body>
+    <form class="form" id="log">
+        <p class="title">Sign in</p>
+        <div class="flex">
+            <label>
+                <input type="email" id="email" class="input" required>
+                <span>Email</span>
+            </label>
+    
+            <label>
+                <input type="password" id="password" class="input" required>
+                <span>Password</span>
+            </label>
+        </div>
+        <button class="submit" type="button" onclick="logData()">
+            Sign in
+        </button>
+
+        <p class="signin">
+            No account?
+            <a href="signup.html">Sign up</a>
+        </p>
+    </form>
+
+    <script src="../server/login.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,153 @@
+body {
+  
+    background-color: black;
+  }
+  
+  .flex { 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+  }
+
+
+  .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 350px;
+      padding: 20px;
+      border-radius: 20px;
+      position: relative;
+      left: 35%;
+      margin-top: 65px;
+      background-color: #1a1a1a;
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+      color: #fff;
+      border: 1px solid #333;
+    }
+   
+  
+    .title {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+      color: #00bfff;
+    }
+    
+    .title::before {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .title::after {
+      width: 18px;
+      height: 18px;
+      animation: pulse 1s linear infinite;
+    }
+    
+    .title::before,
+    .title::after {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      left: 0px;
+      background-color: #00bfff;
+    }
+    
+    .message, 
+    .signin {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .signin {
+      text-align: center;
+    }
+    
+    .signin a:hover {
+      text-decoration: underline royalblue;
+    }
+    
+    .signin a {
+      color: #00bfff;
+    }
+    
+    .flex {
+      display: flex;
+      width: 100%;
+      gap: 6px;
+    }
+    
+    .form label {
+      position: relative;
+    }
+    
+    .form label .input {
+        box-sizing: border-box; /* Ajout de cette ligne pour inclure le remplissage et les bordures dans la largeur */
+        background-color: #333;
+        color: #fff;
+        width: calc(100% - 20px); /* Utilisation de calc() pour ajuster la largeur avec le padding et la marge */
+        padding: 20px 10px 10px; /* Ajustement du padding */
+        margin: 5px;
+        outline: 0;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        border-radius: 10px;
+    }
+    
+    .form label .input + span {
+      color: rgba(255, 255, 255, 0.5);
+      position: absolute;
+      left: 19px;
+      top: 21px;
+      font-size: 0.9em;
+      cursor: text;
+      transition: 0.3s ease;
+    }
+  
+    
+    .form label .input:focus + span,
+    .form label .input:valid + span {
+      color: #00f5f5;
+      top: 10px;
+      font-size: 0.7em;
+      font-weight: 600;
+    }
+    
+    .input {
+      font-size: medium;
+    }
+    .submit {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transform: .3s ease;
+        background-color: #00bfff;
+        margin: 0 auto; /* Ajout de cette ligne pour centrer horizontalement */
+    }
+    
+    .submit:hover {
+      background-color: #00bfff96;
+    }
+    
+    @keyframes pulse {
+      from {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+    
+      to {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }

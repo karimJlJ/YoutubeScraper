@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="">
+    <link rel="stylesheet" type="text/css" href="./css/creator.css">
+    <title>Creators Video</title>
+</head>
+<body>
+    <div class="container">
+        <button id="download-button">Clique pour télécharger</button>
+    
+
+    <div class="download-progress-container">
+        <div class="download-bar"></div>
+    </div>
+    
+</div>
+    <!-- Ajoutez un élément pour afficher les résultats -->
+    <ul id="video-list"></ul>
+
+    <script>
+        // Récupérez le bouton et ajoutez un gestionnaire d'événements
+        const downloadButton = document.getElementById('download-button');
+        const videoList = document.getElementById('video-list');
+        const downloadProgressBar = document.querySelector('.download-progress-container .download-bar');
+
+        downloadButton.addEventListener('click', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const creatorURL = urlParams.get('url');
+            downloadProgressBar.classList.remove('hidden');
+            // Effacez le contenu précédent de la liste
+            videoList.innerHTML = '';
+
+            // Réinitialisez la barre de progression avant chaque clic
+            downloadProgressBar.style.width = '0%';
+
+            // Fonction pour simuler le téléchargement
+            function simulateDownload() {
+                let progress = 0;
+                const downloadInterval = setInterval(() => {
+                    progress += 5; // Augmente la progression (exemple : +5% à chaque intervalle)
+
+                    if (progress >= 100) {
+                        clearInterval(downloadInterval); // Arrête la simulation lorsque la progression atteint 100%
+                        downloadProgressBar.classList.add('hidden'); // Masque la barre de progression après le téléchargement
+                    }
+
+                    downloadProgressBar.style.width = `${progress}%`; // Met à jour la largeur de la barre de progression
+                }, 500); // Intervalles de mise à jour de la progression (par exemple, toutes les 500 ms)
+            }
+
+            simulateDownload(); // Lancez la simulation de téléchargement
+
+            let url = `http://localhost:3003/api/scrapeVideo?url=${creatorURL}`;
+            try {
+                const response = await fetch(url);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const metadataItems = data.metadataItems;
+
+                    // Assurez-vous que metadataItems est un tableau
+                    if (Array.isArray(metadataItems)) {
+                        // Affichez les titres des vidéos dans la liste
+                        for (const video of metadataItems) {
+                            const videoCard = document.createElement('div');
+                            videoCard.classList.add('video-card');
+
+                            // Titre de la vidéo
+                            const titleElement = document.createElement('h2');
+                            titleElement.textContent = video.title;
+                            videoCard.appendChild(titleElement);
+
+                            const viewCountElement = document.createElement('h3');
+                            viewCountElement.textContent = video.viewCount;
+                            videoCard.appendChild(viewCountElement);
+
+                            const publicationDateElement = document.createElement('h3');
+                            publicationDateElement.textContent = video.publicationDate;
+                            videoCard.appendChild(publicationDateElement);
+
+                            // Vous pouvez ajouter d'autres informations sur la vidéo ici, comme une miniature, la durée, etc.
+
+                            videoList.appendChild(videoCard);
+                        }
+                    } else {
+                        console.error('metadataItems is not an array.');
+                    }
+                } else {
+                    console.error('Failed to fetch video data.');
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    </script>
+</body>
+</html>
