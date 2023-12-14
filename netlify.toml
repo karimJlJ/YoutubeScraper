@@ -1,3 +1,9 @@
 [build]
   command = "npm run build"
   publish = "/"
+  
+[[redirects]]
+  from = "/*"
+  to = "/signup.html"
+  status = 200
+  force = true
