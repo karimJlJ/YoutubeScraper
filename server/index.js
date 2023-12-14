@@ -8,9 +8,6 @@ const db = require('./db');
 const { EmailUniqueFunction , insertUser } = require('./db'); // Assurez-vous que le chemin est correct
 const jwt = require('jsonwebtoken');
 const config = require('./config');
-const path = require("path")
-
-app.use(express.static(path.resolve(__dirname, "../client/build")))
 
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
@@ -178,11 +175,6 @@ app.delete('/creators/:id', async (req, res) => {
         connection.close();
     }
 });
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "signup.html"))
-}
-);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
