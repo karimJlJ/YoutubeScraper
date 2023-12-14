@@ -16,3 +16,7 @@
 
 [functions]
   directory = "server" # Dossier contenant le code du back-end
+  included_files = ["server/functions/**"] # inclut uniquement le code
+
+
+
