@@ -1,6 +1,6 @@
 [build]
   command = "npm run build" 
-  publish = "build/client" # Dossier de build du front-end
+  publish = "client" # Dossier de build du front-end
 
 [[redirects]]
   from = "/api/*" # Redirige les requêtes API vers le back-end
