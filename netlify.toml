@@ -1,0 +1,4 @@
+[build]
+  base = ""  # Laissez-le vide ou spécifiez le chemin relatif au répertoire racine.
+  command = "npm install && npm run build"  # Assurez-vous que ces commandes correspondent à celles que vous utilisez localement.
+  publish = "server"  # Utilisez le dossier server comme répertoire de publication.

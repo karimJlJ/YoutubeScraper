@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3003;
+const port = process.env.PORT || 3003;
 const bodyParser = require('body-parser');
 const scrapers = require('./scraper/scrapers');
 const scrapeVideos = require('./scraper/video-scrape');
@@ -8,7 +8,6 @@ const db = require('./db');
 const { EmailUniqueFunction , insertUser } = require('./db'); // Assurez-vous que le chemin est correct
 const jwt = require('jsonwebtoken');
 const config = require('./config');
-const path = require("path")
 
 
 app.use(bodyParser.json());
