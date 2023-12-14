@@ -1,13 +1,18 @@
 [build]
-  command = "npm run build"  # Si vous avez une commande de build spécifique
-  publish = "client"  # Dossier du front-end à publier
+  command = "npm run build" 
+  publish = "build/client" # Dossier de build du front-end
 
 [[redirects]]
-  from = "/*"
-  to = "/signup.html"
+  from = "/api/*" # Redirige les requêtes API vers le back-end
+  to = "/.netlify/functions/:splat"
   status = 200
   force = true
 
 [dev]
-  command = "npm run start"  # Commande pour démarrer le back-end en mode développement
-  functions = "server"  # Dossier du back-end
+  command = "npm run dev" # Commande pour démarrer front et back en dev
+  port = 3003 # Port sur lequel tourne le front
+  targetPort = 3003 # Port sur lequel tourne le back
+  publish = "dist" # Dossier de build du front pour le dev
+
+[functions]
+  directory = "server" # Dossier contenant le code du back-end
