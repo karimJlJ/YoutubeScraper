@@ -8,6 +8,7 @@ const db = require('./db');
 const { EmailUniqueFunction , insertUser } = require('./db'); // Assurez-vous que le chemin est correct
 const jwt = require('jsonwebtoken');
 const config = require('./config');
+const path = require("path")
 
 
 app.use(bodyParser.json());
@@ -176,6 +177,7 @@ app.delete('/creators/:id', async (req, res) => {
         connection.close();
     }
 });
+
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
