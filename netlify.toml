@@ -1,9 +1,13 @@
 [build]
-  command = "npm run build"
-  publish = "/"
-  
+  command = "npm run build"  # Si vous avez une commande de build spécifique
+  publish = "client"  # Dossier du front-end à publier
+
 [[redirects]]
   from = "/*"
   to = "/signup.html"
   status = 200
   force = true
+
+[dev]
+  command = "npm run start"  # Commande pour démarrer le back-end en mode développement
+  functions = "server"  # Dossier du back-end
