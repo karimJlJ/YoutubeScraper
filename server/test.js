@@ -1,4 +1,4 @@
-const { scrapeVideo } = require('./video-scrape'); // Remplacez 'votre_scraper' par le chemin correct vers votre module de scraper.
+const { scrapeVideo } = require('./scraper/video-scrape'); // Remplacez 'votre_scraper' par le chemin correct vers votre module de scraper.
 
 async function testScraper() {
     const url = 'https://www.youtube.com/@ninjascripter5214/featured'; // Remplacez par l'URL que vous souhaitez scraper.
